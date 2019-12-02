@@ -1,31 +1,55 @@
 import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
+// import TextField from "@material-ui/core/TextField";
+// import Grid from "@material-ui/core/Grid";
 import { useTranslation } from "react-i18next";
 
 const LoginForm = props => {
   // Extract i18n
   const { t } = useTranslation("translations");
 
-  const {username, setUserName} = useState({ username: null });
+  const [username, setUserName] = useState('');
 
-  const {password, setPassword} = useState({ password: null });
-  
+  const [password, setPassword] = useState('');
+
+  const handleUsernameChange = event => {
+    setUserName(event.target.value);
+  };
+
+  const handlePasswordChange = event => {
+    setPassword(event.target.value);
+  };
+
+  const login = (event) => {
+    event.preventDefault();
+    // Dispatch login action
+    props.login({password, username});
+  };
+
   return (
     <form>
       <div className="form-group">
-        <label for="exampleInputEmail1">{t("username")}</label>
-        <input type="email" className="form-control" id="exampleInputEmail1" />
+        <label htmlFor="username">{t("username")}</label>
+        <input
+          value={username}
+          onChange={handleUsernameChange}
+          id="username"
+          name="username"
+        />
       </div>
 
       <div className="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label htmlFor="password">Password</label>
         <input
+          value={password}
+          onChange={handlePasswordChange}
+          id="password"
+          name="password"
           type="password"
           className="form-control"
-          id="exampleInputPassword1"
         />
       </div>
+
+      <button onClick={login}>Login</button>
     </form>
   );
 };

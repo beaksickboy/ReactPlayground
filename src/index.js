@@ -1,16 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { I18nextProvider } from "react-i18next";
+import { compose } from "redux";
+import { createEpicMiddleware } from "redux-observable";
 
 import Spinner from "./shared/components/spinner/spinner";
 import AppContainer from "./components/AppContainer";
+import rootEpic from "./epics";
 import reducers from "./reducers";
-import i18n from './i18n';
+import i18n from "./i18n";
 import "./index.scss";
 
-const store = createStore(reducers);
+// Create instance of redux observable
+const epicMiddleware = createEpicMiddleware();
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(epicMiddleware))
+);
+
+epicMiddleware.run(rootEpic)
 
 ReactDOM.render(
   <Provider store={store}>
