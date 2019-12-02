@@ -10,3 +10,7 @@ export class LoginForm extends React.Component {
       </form>
   }
 }
+
+
+// const query = new URLSearchParams(this.props.location.search); 
+// for (let param of query.entries()) { console.log(param);
