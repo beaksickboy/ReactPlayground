@@ -1,3 +1,6 @@
-{
-    "username" : "Username"
+{   
+    "vietnamese": "Vietnamese",
+    "english": "English",
+    "languages" : "Languages",
+    "logout": "Logout"
 }

@@ -2,20 +2,25 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 import en from "./translations/en/index.json";
-import ja from "./translations/ja/index.json";
+import vi from "./translations/vi/index.json";
 
 const resources = {
   en: {
     translations: en
   },
-  ja: {
-    translations: ja
+  vi: {
+    translations: vi
   }
 };
 
+export const langs = [
+  { name: "vietnamese", code: "vi" },
+  { name: "english", code: "en" }
+];
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: "ja",
+  lng: "vi",
   ns: ["translations"],
   defaultNS: "translations",
 

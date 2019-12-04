@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import LoginForm from "../LoginForm";
 import { login } from "../../actions/auth";
-import { userInfo } from "os";
 
 const LoginContainer = props => {
   return props.user ? <Redirect to="/home" /> : <LoginForm {...props}/>;

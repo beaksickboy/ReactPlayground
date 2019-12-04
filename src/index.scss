@@ -3,3 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+// Remove outline
+button:focus {
+  outline: 0;
+}

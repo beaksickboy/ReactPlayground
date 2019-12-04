@@ -6,7 +6,7 @@ import { I18nextProvider } from "react-i18next";
 import { compose } from "redux";
 import { createEpicMiddleware } from "redux-observable";
 
-import Spinner from "./shared/components/spinner/spinner";
+// import Spinner from "./shared/components/spinner/spinner";
 import AppContainer from "./components/AppContainer";
 import rootEpic from "./epics";
 import reducers from "./reducers";
@@ -16,8 +16,10 @@ import "./index.scss";
 // Create instance of redux observable
 const epicMiddleware = createEpicMiddleware();
 
+// Setup redux devtool
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+// create store with reducer and epic middleware
 const store = createStore(
   reducers,
   composeEnhancers(applyMiddleware(epicMiddleware))
