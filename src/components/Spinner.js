@@ -1,5 +1,5 @@
-import React from "./node_modules/react";
-import './spinner.scss';
+import React from "react";
+import './Spinner.scss';
 
 const Spinner = (props) => {
     return <div className="spinner">

@@ -6,8 +6,7 @@ import { I18nextProvider } from "react-i18next";
 import { compose } from "redux";
 import { createEpicMiddleware } from "redux-observable";
 
-// import Spinner from "./shared/components/spinner/spinner";
-import AppContainer from "./components/AppContainer";
+import { AppContainer } from "./container";
 import rootEpic from "./epics";
 import reducers from "./reducers";
 import i18n from "./i18n";

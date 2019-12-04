@@ -4,7 +4,7 @@ import { ListItemText, ListItem, List } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
 import LanguagesListItem from "./LanguagesListItem";
-import { langs } from "../../i18n";
+import { langs } from "../i18n";
 
 
 const useStyles = makeStyles(theme => ({

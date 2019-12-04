@@ -1,5 +1,5 @@
-import LoginContainer from '../components/LoginContainer/LoginContainer';
-import HomeContainer from '../components/HomeContainer/HomeContainer';
+import LoginContainer from '../container/LoginContainer';
+import HomeContainer from '../container/HomeContainer';
 
 const routes = [
     {
