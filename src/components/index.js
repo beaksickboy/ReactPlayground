@@ -15,5 +15,5 @@ export {
     LoginForm,
     Spinner,
     SideBar,
-    StupidTable
+    StupidTable,
 }

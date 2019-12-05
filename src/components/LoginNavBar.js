@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
-  Typography,
   IconButton,
   makeStyles,
   fade,
@@ -92,23 +91,26 @@ const LoginNavBar = props => {
     ) : null;
   };
 
+  const renderMenu = () => {
+    return props.user ? (
+      <IconButton
+        className={classes.menuButton}
+        color="inherit"
+        edge="start"
+        aria-label="menu"
+        onClick={toggleDrawer}
+      >
+        <MenuIcon />
+      </IconButton>
+    ) : null;
+  };
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            className={classes.menuButton}
-            color="inherit"
-            edge="start"
-            aria-label="menu"
-            onClick={toggleDrawer}
-          >
-            <MenuIcon />
-          </IconButton>
-
-          <Typography className={classes.title} variant="h6">
-            Home
-          </Typography>
+          {renderMenu()}
+          <div className={classes.title}></div>
           {renderAction()}
         </Toolbar>
       </AppBar>

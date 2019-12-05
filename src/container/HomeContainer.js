@@ -1,7 +1,8 @@
 import React from "react";
+import { StupidTable } from "../components";
 
 const HomeContainer = props => {
-    return <div>Home</div>
+    return <StupidTable></StupidTable>
 }
 
 
