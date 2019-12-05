@@ -5,7 +5,6 @@ import {
   Button,
   TextField,
   CssBaseline,
-  Typography,
   Container,
   makeStyles
 } from "@material-ui/core";
@@ -92,9 +91,9 @@ const LoginForm = props => {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={t("login")}
+            onClick={login}
           >
-            Sign In
+            {t("login")}
           </Button>
         </form>
       </div>
