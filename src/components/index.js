@@ -5,6 +5,7 @@ import MenuOptionItems from "./MenuOptionItems";
 import Spinner from "./Spinner";
 import LoginForm from "./LoginForm";
 import SideBar from "./SideBar";
+import StupidTable from "./StupidTable";
 
 export {
     LoginNavBar,
@@ -13,5 +14,6 @@ export {
     MenuOptionItems,
     LoginForm,
     Spinner,
-    SideBar
+    SideBar,
+    StupidTable
 }

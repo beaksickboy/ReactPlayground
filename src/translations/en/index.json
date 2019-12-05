@@ -2,5 +2,9 @@
     "vietnamese": "Vietnamese",
     "english": "English",
     "languages" : "Languages",
-    "logout": "Logout"
+    "logout": "Logout",
+    "username": "Username",
+    "login": "Login",
+    "password": "Password",
+    "signin": "SIGN IN"
 }

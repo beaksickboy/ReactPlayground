@@ -2,5 +2,9 @@
     "vietnamese": "Tiếng Việt",
     "english": "Tiếng Anh",
     "languages" : "Ngôn ngữ",
-    "logout": "Đăng xuất"
+    "logout": "Đăng xuất",
+    "username": "Tên người dùng",
+    "login": "Đăng nhập",
+    "password": "Mật khẩu",
+    "signin": "Đăng nhập"
 }

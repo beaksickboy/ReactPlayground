@@ -7,7 +7,7 @@ import {
   ListItemIcon,
   ListItemText
 } from "@material-ui/core";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
+import { MoveToInbox as InboxIcon } from "@material-ui/icons";
 
 const useStyles = makeStyles({
   list: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   }
 });
 
-const SideBar = (props) => {
+const SideBar = props => {
   const classes = useStyles();
 
   const sideList = () => (
@@ -38,11 +38,11 @@ const SideBar = (props) => {
   );
 
   return (
-      <Drawer open={props.open} onClose={props.toggleDrawer}>
-        {sideList()}
-      </Drawer>
+    <Drawer open={props.open} onClose={props.toggleDrawer}>
+      {sideList()}
+    </Drawer>
   );
-}
+};
 
 function basicConfig() {
   return [
@@ -52,6 +52,5 @@ function basicConfig() {
     }
   ];
 }
-
 
 export default SideBar;

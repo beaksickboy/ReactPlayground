@@ -8,7 +8,8 @@ import {
   fade,
   InputBase
 } from "@material-ui/core";
-import { Menu as MenuIcon, Search as SearchIcon } from "@material-ui/icons/";
+import { Menu as MenuIcon, Search as SearchIcon } from "@material-ui/icons";
+import { connect } from "react-redux";
 
 import MenuOption from "./MenuOption";
 import SideBar from "./SideBar";
@@ -69,6 +70,28 @@ const LoginNavBar = props => {
     setOpen(!open);
   };
 
+  const renderAction = () => {
+    return props.user ? (
+      <React.Fragment>
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
+          </div>
+          <InputBase
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput
+            }}
+            inputProps={{ "aria-label": "search" }}
+          />
+        </div>
+
+        <MenuOption />
+      </React.Fragment>
+    ) : null;
+  };
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -86,28 +109,17 @@ const LoginNavBar = props => {
           <Typography className={classes.title} variant="h6">
             Home
           </Typography>
-
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
-          </div>
-
-          <MenuOption />
+          {renderAction()}
         </Toolbar>
       </AppBar>
 
-      <SideBar open={open} toggleDrawer={toggleDrawer}/>
+      <SideBar open={open} toggleDrawer={toggleDrawer} />
     </div>
   );
 };
 
-export default LoginNavBar;
+const mapStateToProps = state => ({
+  user: state.auth.user
+});
+
+export default connect(mapStateToProps)(LoginNavBar);
