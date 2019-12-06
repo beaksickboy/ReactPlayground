@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, IconButton, useTheme } from "@material-ui/core";
+import { makeStyles, IconButton } from "@material-ui/core";
 import {
   FirstPage as FirstPageIcon,
   KeyboardArrowRight,

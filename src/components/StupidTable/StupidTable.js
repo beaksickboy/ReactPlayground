@@ -8,7 +8,8 @@ import {
   TableRow,
   TableFooter,
   TablePagination,
-  Paper
+  Paper,
+  TableSortLabel
 } from "@material-ui/core";
 import PropTypes from "prop-types";
 
@@ -24,12 +25,35 @@ const useStyles = makeStyles({
   }
 });
 
+const reducer = (accumulator, column) => {
+  if (column.sort) {
+    accumulator[column.sort.param] = {
+      direction: column.sort.direction,
+      key: column.key
+    };
+  }
+  return accumulator;
+};
+
+const sort = sortingParams => (a, b) => {
+  try { 
+    
+  } catch(e) {
+    return 0;
+  }
+};
+
 const StupidTable = props => {
   const { settings, data } = props;
   const { columns, paging } = settings;
   const classes = useStyles();
   const [page, setPage] = useState(paging.page);
   const [rowsPerPage, setRowsPerPage] = useState(paging.rowsPerPage);
+  const [sortingOption, setSortingOption] = useState(
+    columns.reduce(reducer, {})
+  );
+
+  console.log(sortingOption);
 
   // Create table row base on data, and setting key
   // If in tableSetting column has properties component then render component instead of key
@@ -57,11 +81,39 @@ const StupidTable = props => {
   };
 
   const tableHeader = () => {
+    const onClick = sortParam => event => {
+      const sortingOptionClone = {
+        ...sortingOption
+      };
+      // If desc then change to ascc
+      sortingOptionClone[sortParam] = {
+        ...sortingOptionClone[sortParam],
+        direction: sortingOptionClone[sortParam].direction === "desc" ? "asc" : "desc"
+      };
+      setSortingOption(sortingOptionClone);
+    };
+
+    const renderSortLabel = column => {
+      if (column.sort) {
+        return (
+          <TableSortLabel
+            active={true}
+            direction={sortingOption[column.sort.param].direction}
+            onClick={onClick(column.sort.param)}
+          >
+            {column.title}
+          </TableSortLabel>
+        );
+      } else {
+        return column.title;
+      }
+    };
+
     return (
       <TableRow>
         {columns.map(column => (
           <TableCell align={column.align || "center"} key={column.title}>
-            {column.title}
+            {renderSortLabel(column)}
           </TableCell>
         ))}
       </TableRow>

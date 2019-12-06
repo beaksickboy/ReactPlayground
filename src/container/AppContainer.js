@@ -65,11 +65,19 @@ const settings = {
     {
       title: "Dessert (100g serving)",
       key: "name",
-      align: "left"
+      align: "left",
+      sort: {
+        direction: "asc",
+        param: "dessert"
+      }
     },
     {
       title: "Calories",
       key: "calories",
+      sort: {
+        direction: "desc",
+        param: "calories"
+      }
       // component: props => <CustomComponent {...props}></CustomComponent>
     },
     {
